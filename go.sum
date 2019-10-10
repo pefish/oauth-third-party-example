@@ -112,8 +112,6 @@ github.com/parnurzeal/gorequest v0.2.15 h1:oPjDCsF5IkD4gUk6vIgsxYNaSgvAnIh1EJeRO
 github.com/parnurzeal/gorequest v0.2.15/go.mod h1:3Kh2QUMJoqw3icWAecsyzkpY7UzRfDhbRdTjtNwNiUE=
 github.com/pefish/go-application v0.1.0 h1:xzr+g74pqrwMe1TFTOnBLgSD3nWgFWe7ACGqwiFrDOk=
 github.com/pefish/go-application v0.1.0/go.mod h1:bIM667i1fBpkJxZWE0lTbYs/FW4O9YgnW5gj4sy33ko=
-github.com/pefish/go-config v0.0.4 h1:n5s60AF3xKhd0mea5l7Mzo8wOdb9ZBDB38gVNhMGJ4M=
-github.com/pefish/go-config v0.0.4/go.mod h1:DKVvZlwB0pfrLvcJEmyCqaDAq3CLyhx7K16rxCz7sGo=
 github.com/pefish/go-config v0.0.5 h1:IFIdeGuOt6GZfVSwzqXeKr5vW+/vDXRJKdxVV030Rp8=
 github.com/pefish/go-config v0.0.5/go.mod h1:DKVvZlwB0pfrLvcJEmyCqaDAq3CLyhx7K16rxCz7sGo=
 github.com/pefish/go-core v0.3.11 h1:Fpgg5K/rsrLobppGweu9OJYPcPj3WDZvsl4PSBIgNLY=

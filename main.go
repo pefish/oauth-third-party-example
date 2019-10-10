@@ -7,7 +7,7 @@ import (
 	"github.com/pefish/go-http"
 	"github.com/pefish/go-logger"
 	"github.com/pefish/go-redis"
-	"oauth-login-consent/service"
+	"oauth-third-party-example/service"
 	"os"
 	"runtime/debug"
 	"time"

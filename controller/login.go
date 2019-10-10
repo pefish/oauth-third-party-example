@@ -123,14 +123,4 @@ func (this *LoginControllerClass) LoginGet(apiSession *api_session.ApiSessionCla
 	return nil
 }
 
-//docker run --rm -it \
-//--network hydraguide \
-//oryd/hydra:v1.0.0 \
-//clients create \
-//--endpoint http://ory-hydra-example--hydra:4445 \
-//--id oauth-third-party \
-//--secret oauth-third-party \
-//-g authorization_code,refresh_token \
-//-r token,code,id_token \
-//--scope openid,offline,test \
-//--callbacks http://127.0.0.1:8000/home
+

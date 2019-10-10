@@ -1,4 +1,4 @@
-module oauth-login-consent
+module oauth-third-party-example
 
 require (
 	github.com/pefish/go-application v0.1.0

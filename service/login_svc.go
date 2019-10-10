@@ -4,8 +4,8 @@ import (
 	"github.com/pefish/go-core/api-channel-builder"
 	"github.com/pefish/go-core/api-strategy"
 	"github.com/pefish/go-core/service"
-	"oauth-login-consent/constant"
-	"oauth-login-consent/controller"
+	"oauth-third-party-example/constant"
+	"oauth-third-party-example/controller"
 )
 
 type LoginSvcClass struct {
