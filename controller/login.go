@@ -54,7 +54,7 @@ func (this *LoginControllerClass) LoginCallback(apiSession *api_session.ApiSessi
 			Params: map[string]interface{}{
 				`grant_type`:   `authorization_code`,
 				`client_id`:    go_config.Config.GetString(`/oauth/clientId`),
-				`redirect_uri`: `http://127.0.0.1:8000/home`,
+				`redirect_uri`: go_config.Config.GetString(`/oauth/callbackUrl`),
 				`code`:         *params.Code,
 			},
 			BasicAuth: &go_http.BasicAuth{
