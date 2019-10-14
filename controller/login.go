@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/pefish/go-config"
 	"github.com/pefish/go-core/api-session"
-	"github.com/pefish/go-error"
 	"github.com/pefish/go-http"
+	"github.com/pefish/go-logger"
 	"github.com/pefish/go-random"
 	"github.com/pefish/go-redis"
 	"time"
@@ -40,15 +40,37 @@ func (this *LoginControllerClass) LoginCallback(apiSession *api_session.ApiSessi
 		</body>
 	</html>
 `
+		go_logger.Logger.Debug(`1111`)
 		apiSession.Ctx.Write([]byte(fmt.Sprintf(str, *params.Error, *params.ErrorDescription)))
 		return nil
 	}
 
 	if params.Code != nil {
-		if go_redis.RedisHelper.String.Get(*params.State) == `` {
-			go_error.Throw(`state error`, 2000)
-		}
-		go_redis.RedisHelper.Del(*params.State)
+		//if go_redis.RedisHelper.String.Get(*params.State) == `` {
+		//	go_error.Throw(`state error`, 2000)
+		//}
+		//go_redis.RedisHelper.Del(*params.State)
+
+		//publicURL, _ := url.Parse(go_config.Config.GetString(`/oauth/serverUrl`))
+		//public := client.NewHTTPClientWithConfig(nil, &client.TransportConfig{Schemes: []string{publicURL.Scheme}, Host: publicURL.Host, BasePath: publicURL.Path})
+		//clientId := go_config.Config.GetString(`/oauth/clientId`)
+		//redirectUri := go_config.Config.GetString(`/oauth/callbackUrl`)
+		//param := &public2.Oauth2TokenParams{
+		//	ClientID: &clientId,
+		//	GrantType: `authorization_code`,
+		//	RedirectURI: &redirectUri,
+		//	Code: params.Code,
+		//}
+		//result, err := public.Public.Oauth2Token(
+		//	param.WithTimeout(10 * time.Second),
+		//	client2.BasicAuth(go_config.Config.GetString(`/oauth/clientId`), go_config.Config.GetString(`/oauth/clientSecret`)),
+		//)
+		//if err != nil {
+		//	fmt.Println(err)
+		//	go_error.ThrowError(`get token error`, 2000, err)
+		//}
+		//fmt.Printf(`%#v`, result)
+
 		map_ := go_http.Http.PostMultipartForMap(go_http.PostMultipartParam{
 			Url: go_config.Config.GetString(`/oauth/serverUrl`) + `/oauth2/token`,
 			Params: map[string]interface{}{
@@ -60,6 +82,9 @@ func (this *LoginControllerClass) LoginCallback(apiSession *api_session.ApiSessi
 			BasicAuth: &go_http.BasicAuth{
 				Username: go_config.Config.GetString(`/oauth/clientId`),
 				Password: go_config.Config.GetString(`/oauth/clientSecret`),
+			},
+			Headers: map[string]interface{}{
+				`Cookie`: apiSession.Ctx.GetHeader(`Cookie`),
 			},
 		})
 		str := `
