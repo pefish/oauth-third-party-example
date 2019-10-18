@@ -125,10 +125,11 @@ func (this *LoginControllerClass) getAuthUrl(state string) string {
 	// max_age指定ID token的过期时间
 	// scope必须包含openid
 	return fmt.Sprintf(
-		`%s/oauth2/auth?max_age=0&client_id=%s&redirect_uri=%s&response_type=code&scope=openid+offline+test&state=%s`,
+		`%s/oauth2/auth?max_age=0&client_id=%s&redirect_uri=%s&response_type=code&scope=%s&state=%s`,
 		go_config.Config.GetString(`/oauth/serverUrl`),
 		go_config.Config.GetString(`/oauth/clientId`),
 		go_config.Config.GetString(`/oauth/callbackUrl`),
+		go_config.Config.GetString(`/oauth/scope`),
 		state)
 }
 
